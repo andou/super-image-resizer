@@ -1,0 +1,39 @@
+{
+  "name": "andou/super-image-resizer",
+  "description": "",
+  "license": "Mit License",
+  "authors": [
+    {
+      "name": "Antonio Pastorino",
+      "email": "antonio.pastorino@gmail.com",
+      "role": "Architect"
+    },
+    {
+      "name": "Daniele Giannini",
+      "role": "Developer"
+    },
+    {
+      "name": "Luca Giannitelli",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/andou/super-image-resizer/issues"
+  },
+  "require": {
+    "php": ">=5.3.0",
+    "abeautifulsite/simpleimage": "*"
+  },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/claviska/SimpleImage.git"
+    }
+  ],
+  "autoload": {
+    "classmap": [
+      "src/"
+    ]
+  },
+  "minimum-stability": "dev"
+}
