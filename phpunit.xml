@@ -1,28 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit
-         backupStaticAttributes="false"
-
-         cacheTokens="false"
-         colors="false"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
-         forceCoversAnnotation="false"
-         mapTestClassNameToCoveredClassName="false"
-
-         processIsolation="false"
-         stopOnError="false"
-         stopOnFailure="false"
-         stopOnIncomplete="false"
-         stopOnSkipped="false"
-		 
-         strict="false"
-         verbose="false"
-		 
+	 bootstrap="vendor/autoload.php"
 		 >
 	<testsuites>
 		<testsuite name="./unittests/SuperImageResizerTest">
-			<directory>.</directory>
+			<directory>./unittests</directory>
 		</testsuite>
 	</testsuites>
 	
