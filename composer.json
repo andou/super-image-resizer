@@ -26,6 +26,9 @@
     "andou/autoloader": "*",
     "andou/inireader": "*"
   },
+  "require-dev": {
+    "phpunit/phpunit": "4.7.*"
+  },
   "repositories": [
     {
       "type": "git",
