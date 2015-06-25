@@ -24,7 +24,8 @@
     "php": ">=5.3.0",
     "abeautifulsite/simpleimage": "*",
     "andou/autoloader": "*",
-    "andou/inireader": "*"
+    "andou/inireader": "*",
+    "nielse63/phpimagecache": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "4.7.*"
@@ -41,6 +42,10 @@
     {
       "type": "git",
       "url": "https://github.com/andou/autoloader.git"
+    },
+    {
+       "type": "git",
+       "url" : "https://github.com/nielse63/php-image-cache"
     }
   ],
   "autoload": {
