@@ -34,37 +34,41 @@ class Wrapper{
      * @return image
      */
     
-    public function main($image,$width,$height)
+    public function main($imageLink,$width,$height)
     {
      //controllo se non ho già l'immagine nel formato che voglio in cache
-     if(isset($this->_getImageCache($image, $width, $height))){
-         // prendo l'immagine
-         return "immagine presente in cache";
+     $imagePath=$this->_getImageCachePath($imageLink, $width, $height);
+     if(isset(file_exists($imagePath))){
+         //l'immagine è già presente in cache, ritorno quindi 
+         return $imagePath;
      }
      else
      {
          //l'immagine non è ancora in cache
-         $this->imageManager=$this->imageFactory->createImageManager($image);
+         $this->imageManager=$this->imageFactory->createImageManager($imageLink);
          $imageResized = $this->imageManager->resize($width,$height);
          $imageLink=$this->cacheManager->cache($imageResized);
-         array_push($this->imageList,$image,$width,$height,$imageLink);
+         array_push($this->imageList,$imageLink,$width,$height);
          return $imageResized;
      }
      
     }
     
-    /**con questo metodo controllo se esiste già in cache una specifica immagine nel formato che voglio
+    /**con questo metodo crea il path dell'immagine in cache
      * siccome 
      * 
      * @param type $image
      * @param type $width
      * @param type $height
      */
-    private function _getImageCache($image,$width,$height)
+    private function _getImageCachePath($imageName,$width,$height)
     {
-        //scorro l'array config in cerca di immagini con gli attributi di interesse
-        
-        //ritorno il path se trovo l'immagine, altrimenti null
+        $path=$width."x".$height;
+        $path=$path."\\";
+        $path=$path.(strtolower(substr($image, 0)));
+        $path=$path."\\";
+        $path=$path.$imageName;
+        return $path;
     }
     
 }

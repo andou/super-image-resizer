@@ -26,6 +26,9 @@ class App {
      */
     protected $_configs;
     
+    //path della cartella in cui salvo in locale le immagini.
+    private $_imageFolder="/superImage/";
+    
     //variabili l
     private $imageFactory;
     private $cacheFactory;
@@ -45,20 +48,22 @@ class App {
         return $this;
     }
 
-    public function run($image) {
+    public function run($image,$width,$height) {
         if (!$this->_initialized) {
             die('Applicaiton not initialized: check the .ini file');
         }
         //creo il wrapper
+        $wrapper= new Wrapper($this->imageFactory,$this->cacheFactory);
         //lancio l'esecuzione del wrapper
+        $wrapper->main($image,$width,$height);
     }
 
     protected function _init($factoryImage, $factoryCache, $inifile) {
         $this->_configs = Inireader::getInstance($inifile, TRUE);
     }
 
-    public function getConfigs() {
+    protected function _getConfigs() {
         return $this->_configs;
     }
-
+    
 }
