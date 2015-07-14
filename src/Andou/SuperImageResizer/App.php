@@ -112,7 +112,7 @@ class App {
     }
 
     if (!file_exists($filename)) {
-      die("NO FILE HERE");
+      http_response_code(404);
     }
 
     header("Pragma: public");
